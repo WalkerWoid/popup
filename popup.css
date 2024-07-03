@@ -1,0 +1,111 @@
+:root {
+    --transition: .4s;
+}
+
+/*region Основные стили для попапа */
+.popup {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    transition-duration: var(--transition);
+    opacity: 1;
+}
+.popup_hidden {
+    z-index: -1;
+    opacity: 0;
+    transition-delay: .1s;
+}
+.popup__shadow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    /*backdrop-filter: blur(2px);*/
+    transition-duration: var(--transition);
+}
+.step {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-duration: var(--transition);
+    z-index: 2;
+    opacity: 1;
+    background-color: #232323;
+}
+.step_hidden {
+    opacity: 0;
+    z-index: -1;
+}
+.step_top, .step_right, .step_bottom, .step_left {
+    transform: translate(0, 0);
+}
+.step_top {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: auto;
+}
+.step_top.step_hidden {
+    transform: translateY(-100%);
+}
+.step_right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+}
+.step_right.step_hidden {
+    transform: translateX(100%);
+}
+.step_bottom {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.step_bottom.step_hidden {
+    transform: translateY(100%);
+}
+.step_left {
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 0;
+}
+.step_left.step_hidden {
+    transform: translateX(-100%);
+}
+
+@media screen and (max-width: 1024px) {
+    .mobile__step_top, .mobile__step_right, .mobile__step_bottom, .mobile__step_left {
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transform: translate(0, 0);
+    }
+
+    .mobile__step_bottom {
+        /*top: auto;*/
+        /*bottom: 0;*/
+    }
+
+    .mobile__step_top.step_hidden {
+        transform: translateY(-100%) translateX(0);
+    }
+    .mobile__step_right.step_hidden {
+        transform: translateY(0) translateX(100%);
+    }
+    .mobile__step_bottom.step_hidden {
+        transform: translateY(100%) translateX(0);
+    }
+    .mobile__step_left.step_hidden {
+        transform: translateY(0) translateX(-100%);
+    }
+
+}
+/*endregion*/

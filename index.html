@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>popupClass</title>
+
+    <link rel="stylesheet" href="popup.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100dvh;
+        }
+        main {
+            flex: 1 1 auto;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <button class="popup-btn" data-popup="myPopup">Открыть попап</button>
+    <button class="popup-btn" data-popup="myPopup">Открыть попап</button>
+    <button class="popup-btn" data-popup="myPopup">Открыть попап</button>
+</header>
+<main>main</main>
+<footer>footer</footer>
+
+<div id="myPopup" class="popup popup_hidden">
+    <div class="popup__shadow"></div>
+    <div class="step step1 step_left step_hidden mobile__step_bottom" data-step="1">
+        шаг1
+
+        <button class="popup__close">Закрыть</button>
+        <button class="nextStep">Следующий шаг</button>
+    </div>
+    <div class="step step2 step_left step_hidden mobile__step_left" data-step="2">
+        шаг2
+        <button class="popup__close">Закрыть</button>
+        <button class="prevStep">Предыдущий шаг</button>
+    </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
